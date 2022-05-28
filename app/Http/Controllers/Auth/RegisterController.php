@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -48,5 +49,7 @@ class RegisterController extends Controller
         ]);
 
         Auth::login($user);
+
+        return redirect()->route('agencyhome');
     }
 }
